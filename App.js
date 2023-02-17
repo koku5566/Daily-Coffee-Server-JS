@@ -1,21 +1,27 @@
-//import { StatusBar } from 'expo-status-bar';
-//import { StyleSheet, Text, View } from 'react-native';
-//
-//export default function App() {
-//  return (
-//    <View style={styles.container}>
-//      <Text>Open up App.js to start working on your app!</Text>
-//      <StatusBar style="auto" />
-//    </View>
-//  );
-//}
-//
-//const styles = StyleSheet.create({
-//  container: {
-//    flex: 1,
-//    backgroundColor: '#fff',
-//    alignItems: 'center',
-//    justifyContent: 'center',
-//  },
-//});
-//
+//import express from 'express';
+const express = require('express');
+
+//import sequelize from './utils/db.js';
+const sequelize = require('./server/utils/db');
+
+//import router from './routes/routes.js';
+const router = require('./server/routes/routes')
+
+const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
+
+app.use((_, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
+app.use(router);
+
+sequelize.sync(); 
+
+app.listen(5000);
