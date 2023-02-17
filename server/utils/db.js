@@ -1,4 +1,5 @@
-import { Sequelize } from 'sequelize';
+//import { Sequelize } from 'sequelize';
+const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('DCApp','dcadmin','0124229239@DailyCoffee',{
     dialect: 'mysql',

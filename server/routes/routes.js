@@ -1,8 +1,10 @@
 //router use to define Api endpoint
 
-import express from 'express';
+//import express from 'express';
+const express = require('express');
 
-import { signup, login, isAuth } from '../controller/auth.js';
+const { signup, login, isAuth } = require('../controller/auth');
+
 
 const router = express.Router();
 
