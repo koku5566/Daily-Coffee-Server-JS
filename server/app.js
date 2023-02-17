@@ -1,9 +1,11 @@
+//import express from 'express';
+const express = require('express');
 
-import express from 'express';
+//import sequelize from './utils/db.js';
+const sequelize = require('./utils/db');
 
-import sequelize from './utils/db.js';
-
-import router from './routes/routes.js';
+//import router from './routes/routes.js';
+const router = require('./routes/routes')
 
 const app = express();
 
