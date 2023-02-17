@@ -6,4 +6,6 @@ const sequelize = new Sequelize('DCApp','dcadmin','0124229239@DailyCoffee',{
     host: '103.6.199.135:3306'
 });
 
-export default sequelize;
+module.exports = {
+    sequelize
+};
