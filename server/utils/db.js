@@ -7,6 +7,6 @@ const sequelize = new Sequelize('DCApp','dcadmin','0124229239@DailyCoffee',{
     port: '3306'
 });
 
-module.exports = {
-    sequelize
-};
+
+module.exports = sequelize;
+

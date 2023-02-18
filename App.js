@@ -20,9 +20,9 @@ app.use((req, res, next) => {
     next();
 });
 
-//app.use(router);
-console.log('yoooooo');
+
+app.use(router);
 
 sequelize.sync()
 
-app.listen(5000);
+//app.listen(5000);

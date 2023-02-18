@@ -1,7 +1,7 @@
 //import {Sequelize} from 'sequelize';
 const Sequelize = require('sequelize');
 
-const {sequelize} = require('../utils/db') ;
+const sequelize = require('../utils/db') ;
 
 const User = sequelize.define('user',{
     userID:{
