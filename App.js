@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(router);
+//app.use(router);
 console.log('yoooooo');
 
 sequelize.sync()
