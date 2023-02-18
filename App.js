@@ -21,7 +21,12 @@ app.use((req, res, next) => {
 });
 
 //app.use(router);
-
-sequelize.sync(); 
-
+console.log(sequelize);
+sequelize.sync()
+.then(() => {
+    console.log('Database synced successfully.');
+  })
+  .catch((error) => {
+    console.error('Error syncing database:', error);
+  });
 app.listen(5000);
