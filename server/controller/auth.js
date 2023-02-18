@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 //import jwt from 'jsonwebtoken'; //seems like use to stay login etc
 const jwt = require('jsonwebtoken');
 
-const { JsonWebTokenError } =require('jsonwebtoken');
+//const JsonWebTokenError =require('jsonwebtoken');
 const User = require('../model/user');
 
 const signup = (req, res, next) => {
