@@ -110,5 +110,5 @@ const isAuth = (req, res, next) => {
 };
 
 module.exports = {
-     signup, login, isAuth 
+     signup
 };
