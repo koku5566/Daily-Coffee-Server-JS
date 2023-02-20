@@ -19,7 +19,7 @@ router.get('/public', (req,res,next) =>{
     res.status(200).json({message: "Here is your public resource" });
 });
 
-router.use('/', (req,res,next) => {
+router.use('/test', (req,res,next) => {
     res.status(405).json({error : "page not found"});
 });
 
