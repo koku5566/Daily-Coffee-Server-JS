@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post('/login', login);
 
-router.get('/signup', signup);
+router.get('/signup', {signup});
 
 router.get('/private', isAuth);
 
