@@ -109,6 +109,6 @@ const isAuth = (req, res, next) => {
     };
 };
 
-module.exports = {
+exports = {
      signup, login, isAuth 
 };
