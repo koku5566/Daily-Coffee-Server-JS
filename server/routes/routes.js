@@ -20,7 +20,7 @@ router.get('/public', (req,res,next) =>{
 });
 
 router.use('/', (req,res,next) => {
-    res.status(404).json({error : "page not found"});
+    res.status(405).json({error : "page not found"});
 });
 
 module.exports = router;
