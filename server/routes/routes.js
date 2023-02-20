@@ -19,8 +19,12 @@ router.get('/public', (req,res,next) =>{
     res.status(200).json({message: "Here is your public resource" });
 });
 
-router.use('/test', (req,res,next) => {
-    res.status(200).json({message : "page not found"});
+//router.use('/', (req,res,next) => {
+//    res.status(405).json({error : "page not found"});
+//});
+
+router.get('/test', (req,res,next) => {
+    res.status(405).json({error : "page not found"});
 });
 
 module.exports = router;
