@@ -11,9 +11,9 @@ const router = express.Router();
 
 router.post('/login', auth.login);
 
-router.get('/signup', auth.signup);
+router.post('/signup', auth.signup);
 
-router.get('/privates', auth.isAuth);
+router.get('/private', auth.isAuth);
 
 router.get('/public', (req,res,next) =>{
     res.status(200).json({message: "Here is your public resource" });
