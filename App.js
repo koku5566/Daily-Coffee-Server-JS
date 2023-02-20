@@ -21,8 +21,8 @@ app.use((req, res, next) => {
 });
 
 
-app.use('/api',router);
-console.log(router);
+// app.use('/api',router);
+// console.log(router);
 
 sequelize.sync()
 
