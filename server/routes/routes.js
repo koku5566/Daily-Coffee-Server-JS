@@ -23,7 +23,7 @@ router.get('/publicsss', (req,res,next) =>{
 //    res.status(405).json({error : "page not found"});
 //});
 
-router.get('/test', (req,res,next) => {
+router.get('/tester', (req,res,next) => {
     res.status(200).json({message : "page not found"});
 });
 
