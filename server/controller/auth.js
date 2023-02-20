@@ -92,7 +92,7 @@ const login = (req, res, next) => {
 const isAuth = (req, res, next) => {
     const authHeader = req.get("Authorization");
     if (!authHeader) {
-        return res.status(401).json({ message: 'not authenticated' });
+        return res.status(200).json({ message: 'not authenticated' });
     };
     const token = authHeader.split(' ')[1];
     let decodedToken;
