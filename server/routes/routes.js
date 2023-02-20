@@ -24,7 +24,7 @@ router.get('/public', (req,res,next) =>{
 //});
 
 router.get('/test', (req,res,next) => {
-    res.status(405).json({error : "page not found"});
+    res.status(405).json({message : "page not found"});
 });
 
 module.exports = router;
