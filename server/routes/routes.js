@@ -4,16 +4,16 @@
 const express = require('express');
 
 //const { signup, login, isAuth } = require('../controller/auth');
-const {login,signup,isAuth} = require('../controller/auth');
+const auth = require('../controller/auth');
 
 
 const router = express.Router();
 
-router.post('/login', login);
+router.post('/login', auth.login);
 
-router.get('/signup', signup);
+router.get('/signup', auth.signup);
 
-router.get('/private', isAuth);
+router.get('/private', auth.isAuth);
 
 router.get('/public', (req,res,next) =>{
     res.status(200).json({message: "Here is your public resource" });
