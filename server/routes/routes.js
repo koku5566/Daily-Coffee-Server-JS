@@ -15,6 +15,8 @@ router.post('/signup', auth.signup);
 
 router.get('/private', auth.isAuth);
 
+router.post('/addNews', auth.addNews);
+
 router.get('/publicsss', (req,res,next) =>{
     res.status(200).json({message: "Here is your public resourcessss" });
 });

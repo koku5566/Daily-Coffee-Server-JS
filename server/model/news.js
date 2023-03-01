@@ -3,29 +3,26 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../utils/db') ;
 
-const User = sequelize.define('user',{
-    userID:{
+
+const News = sequelize.define('news',{
+    newsID:{
         type: Sequelize.INTEGER,
         autoIncrement:true,
         allowNull:false,
         primaryKey: true,
     },
-    email:{
+    newsTitle:{
         type: Sequelize.STRING,
         allowNull: false,
     },
-    phoneNum:{
-        type: Sequelize.STRING,
+    newsContent:{
+        type: Sequelize.TEXT('long'),
         allowNull: false,
     },
-    name:{
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
-    password:{
-        type: Sequelize.STRING,
+    newsImage:{
+        type: Sequelize.BLOB,
         allowNull: false,
     }
 })
 
-module.exports = User;
+module.exports = News;

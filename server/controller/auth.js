@@ -5,10 +5,13 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 //const JsonWebTokenError =require('jsonwebtoken');
-const User = require('../model/user');
+const multer = require('multer');
 
+const User = require('../model/user');
+const News = require('../model/news');
 
 const signup = (req, res, next) => {
+    console.log('ehhhh?')
     //Check if email already exists
     User.findOne({
         where: {
@@ -28,6 +31,7 @@ const signup = (req, res, next) => {
                     else if (passwordHash) {
                         return User.create(({
                             email: req.body.email,
+                            phoneNum: req.body.phoneNum,
                             name: req.body.name,
                             password: passwordHash,
                         }))
@@ -86,7 +90,7 @@ const login = (req, res, next) => {
             };
         })
         .catch(err => {
-            console.log('error', err);
+            console.log(' any error', err);
         });
 };
 
@@ -109,7 +113,40 @@ const isAuth = (req, res, next) => {
         res.status(200).json({ message: 'here is your resources' });
     };
 };
+// configure the multer middleware to store files in memory
+const upload = multer({ storage: multer.memoryStorage() });
 
+const addNews = ( req, res, next)=>{
+    console.log(req.body);
+    upload.single('newsImage')(req,res,err=>{
+        if (err instanceof multer.MulterError) {
+            // handle any multer errors
+            console.error('Multer error:', err);
+            res.status(500).json({ message: 'Error uploading file.' });
+          } else if (err) {
+            // handle any other errors
+            console.error('Upload error:', err);
+            res.status(500).json({ message: 'Error uploading file.' });
+          } else {
+            // extract the file data from the request and create the news object
+            const news = {
+              newsTitle: req.body.newsTitle,
+              newsContent: req.body.newsContent,
+              newsImage: req.file.buffer,
+            };
+            News.create(news)
+                .then(() => {
+                    res.status(200).json({ message: "News Created" });
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.status(502).json({ message: "error while creating the news" });
+                });
+        }
+      
+    })
+   
+}
 module.exports = {
-    signup, login, isAuth
+    signup, login, isAuth, addNews
 };
