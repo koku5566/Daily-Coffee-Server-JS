@@ -22,10 +22,14 @@ const User = sequelize.define('user',{
         type: Sequelize.STRING,
         allowNull: false,
     },
-    password:{
-        type: Sequelize.STRING,
+    birthday:{
+        type:Sequelize.DATE,
         allowNull: false,
-    }
+    },
+    gender:{
+        type:Sequelize.STRING,
+        allowNull:false,
+    },
 })
 
 module.exports = User;

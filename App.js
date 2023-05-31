@@ -20,15 +20,20 @@ app.use((req, res, next) => {
     next();
 });
 
-
 // app.use('/api',router);
 app.use(router);
 // console.log(router);
 
-sequelize.sync()
+sequelize.sync().then(function(){
+    console.log('DB connection sucessful.');
+  }, function(err){
+    // catch error here
+    console.log('this is the error: '+err);
+  });
 
-app.listen(process.env.PORT); //must be const port = process.env.PORT; otherwise the IIS will have a different port than the node.
+app.listen(5500); //must be const port = process.env.PORT; otherwise the IIS will have a different port than the node.
 
+console.log(app.listen);
 //const express = require('express')
 //const app = express()
 //const port = process.env.PORT 

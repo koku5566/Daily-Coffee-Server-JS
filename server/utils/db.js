@@ -4,8 +4,14 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize('DCApp','dcadmin','0124229239@DailyCoffee',{
     dialect: 'mysql',
     host: '103.6.199.135',
-    port: '3306'
+    port: '3306',
+    dialectOption:{
+        connectTimeout : '100000'
+    },
 });
+
+
+
 
 
 module.exports = sequelize;
