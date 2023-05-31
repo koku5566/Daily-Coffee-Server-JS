@@ -17,6 +17,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Content-Type', 'application/json');
     next();
 });
 
@@ -31,7 +32,7 @@ sequelize.sync().then(function(){
     console.log('this is the error: '+err);
   });
 
-app.listen(process.env.PORT); //must be const port = process.env.PORT; otherwise the IIS will have a different port than the node.
+app.listen(5500); //must be const port = process.env.PORT; otherwise the IIS will have a different port than the node.
 
 console.log(app.listen);
 //const express = require('express')
