@@ -34,8 +34,8 @@ sequelize.sync().then(function(){
 
 const port = process.env.PORT;
 
-app.listen(port); //must be const port = process.env.PORT; otherwise the IIS will have a different port than the node.
-
+//app.listen(port); //must be const port = process.env.PORT; otherwise the IIS will have a different port than the node.
+app.listen(5500);
 console.log(app.listen);
 //const express = require('express')
 //const app = express()
