@@ -32,7 +32,9 @@ sequelize.sync().then(function(){
     console.log('this is the error: '+err);
   });
 
-app.listen(5500); //must be const port = process.env.PORT; otherwise the IIS will have a different port than the node.
+const port = process.env.PORT;
+
+app.listen(port); //must be const port = process.env.PORT; otherwise the IIS will have a different port than the node.
 
 console.log(app.listen);
 //const express = require('express')
